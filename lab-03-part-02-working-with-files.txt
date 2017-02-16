@@ -37,6 +37,10 @@ $ ls
 Copy and paste the output below.
 ----------
 
+G608-19:my_files student$ touch foo.txt
+G608-19:my_files student$ ls
+foo.txt
+
 
 
 ==========
@@ -45,7 +49,9 @@ Copy and paste the output below.
 $ touch bar.txt
 ----------
 
-
+G608-19:my_files student$ touch bar.txt
+G608-19:my_files student$ ls
+bar.txt	foo.txt
 
 ==========
 8. List the files in this directory using the flag that gives the most details.
@@ -53,7 +59,12 @@ $ touch bar.txt
 Copy and paste the output below.
 ----------
 
-
+G608-19:my_files student$ ls -alt
+total 0
+drwxr-xr-x  4 student  staff  136 Feb 16 17:42 .
+-rw-r--r--  1 student  staff    0 Feb 16 17:42 bar.txt
+-rw-r--r--  1 student  staff    0 Feb 16 17:41 foo.txt
+drwxr-xr-x  8 student  staff  272 Feb 16 17:40 ..
 
 ==========
 9. Create a copy of bar.txt called baz.txt and then list the files again.
@@ -61,7 +72,9 @@ Copy and paste the output below.
 
 Write the command that you used to copy the file.  Additionally, copy and paste the output of your file listing below.
 ----------
-
+G608-19:my_files student$ cp bar.txt baz.txt
+G608-19:my_files student$ ls
+bar.txt	baz.txt	foo.txt
 
 
 ==========
@@ -69,21 +82,26 @@ Write the command that you used to copy the file.  Additionally, copy and paste 
 
 Write the command that you used to remove the file.  Copy and paste the output of your file listing below.
 ----------
+
+G608-19:my_files student$ rm bar.txt
+G608-19:my_files student$ ls
+baz.txt	foo.txt
 ==========
 11. Move the file called foo.txt to qux.txt and then list the files again.
 
 
 Write the command that you used to move the file.  Copy and paste the output of your file listing below.
 ----------
-
-
+G608-19:my_files student$ mv foo.txt gux.txt
+G608-19:my_files student$ ls
+baz.txt	gux.txt
 
 ==========
 12. Go up one directory so that you're in ~/mtec1002-lab-03.
 [NO OUTPUT]
 ----------
 
-
+cd ..
 
 ==========
 13. Try removing the directory called my_files using rmdir.
@@ -91,7 +109,8 @@ Write the command that you used to move the file.  Copy and paste the output of 
 Write out the command that you used and what happened.
 ----------
 
-
+G608-19:mtec1002-lab-03 student$ rmdir  my_files
+rmdir: my_files: Directory not empty
 
 ==========
 14. Try removing the directory called my_files using rm.
@@ -99,7 +118,9 @@ Write out the command that you used and what happened.
 Write out the command that you used and what happened.
 ----------
 
-
+G608-19:mtec1002-lab-03 student$ rm -rf my_files
+G608-19:mtec1002-lab-03 student$ ls
+books		logs		logs.tar	web
 
 ==========
 15. MAKE SURE YOU'RE IN THE mtec1002-lab-03 directory!  
@@ -108,7 +129,9 @@ Force the removal of the directory and files using the -rf flag
 
 $ rm -rf my_files
 ----------
-
+G608-19:mtec1002-lab-03 student$ rm -rf my_files
+G608-19:mtec1002-lab-03 student$ ls
+books		logs		logs.tar	web
 
 
 ==========
@@ -133,7 +156,46 @@ Use the command, head, on the file to show the contents of the beginning of the 
 Write the command that you used below.  Write the last line of the output below (it should be the title).
 ----------
 
+G608-19:mtec1002-lab-03 student$ cat books/other/pg1232.txt
+The Project Gutenberg EBook of The Prince, by Nicolo Machiavelli
 
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org
+
+
+Title: The Prince
+
+Author: Nicolo Machiavelli
+
+Translator: W. K. Marriott
+
+Release Date: February 11, 2006 [EBook #1232]
+[This file last updated October 19, 2010]
+
+Language: English
+
+
+*** START OF THIS PROJECT GUTENBERG EBOOK THE PRINCE ***
+
+
+
+
+Produced by John Bickers, David Widger and Others
+
+
+
+
+
+THE PRINCE
+
+by Nicolo Machiavelli
+
+Translated by W. K. Marriott
+
+
+Nicolo Machiavelli, born at Florence on 3rd May 1469. 
 
 ==========
 18. Using the same file again!
@@ -146,7 +208,17 @@ Write the command that you used below.  Write the last line of the output below 
 ----------
 
 
+G608-19:mtec1002-lab-03 student$ tail books/other/pg1232.txt
 
+
+Most people start at our Web site which has the main PG search facility:
+
+     http://www.gutenberg.org
+
+This Web site includes information about Project Gutenberg-tm,
+including how to make donations to the Project Gutenberg Literary
+Archive Foundation, how to help produce our new eBooks, and how to
+subscribe to our email newsletter to hear about new eBooks.
 ==========
 19. Using the same file...
 
@@ -156,8 +228,10 @@ Use less and more on the file to show the contents of the file.  Try pressing sp
 
 Write the command that you used below.  Describe what spacebar and q does after using either less or more.
 ----------
+G608-19:mtec1002-lab-03 student$ less books/other/pg1232.txt
+When using less, pressing q caused the contents to go away
 
-
+where using more, pressing spacebar goes to the next section of text.
 
 ==========
 20. Describe what situations you would use the following commands for viewing files: less, more, cat, tail, head
@@ -165,14 +239,18 @@ Write the command that you used below.  Describe what spacebar and q does after 
 (Some characteristics that may help your description might be the length of the file, whether or not you'd like to read the whole thing... or just the beginning or end, etc.)
 ----------
 
-
+you can use cat where you are looking for a file and want to know it’s edited.
 
 ==========
 21.  How many words are in pg1232.txt?  What command did you use to determine the word count?
 ----------
-
+G608-19:mtec1002-lab-03 student$ wc -w books/other/pg1232.txt
+   52639 books/other/pg1232.txt
 
 
 ==========
 22.  How many lines are in pg1232.txt?  What command did you use to determine the line count?
 ----------
+G608-19:mtec1002-lab-03 student$ wc -l books/other/pg1232.txt
+    5063 books/other/pg1232.txt
+
