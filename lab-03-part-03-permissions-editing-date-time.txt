@@ -17,7 +17,8 @@ We're going to be writing a shell script.  First, though... let's figure out wha
 
 What command did you use, and what was its output?
 ----------
-
+G608-19:mtec1002-lab-03 student$ date
+Thu Feb 16 18:18:08 EST 2017
 
 
 ==========
@@ -25,6 +26,14 @@ What command did you use, and what was its output?
 
 What command did you use, and what was its output?
 ----------
+G608-19:mtec1002-lab-03 student$ cal february 2017
+   February 2017
+Su Mo Tu We Th Fr Sa
+          1  2  3  4
+ 5  6  7  8  9 10 11
+12 13 14 15 16 17 18
+19 20 21 22 23 24 25
+26 27 28
 
 
 
@@ -34,14 +43,24 @@ What command did you use, and what was its output?
 What commands did you use to do this?
 ----------
 
-
+G608-19:mtec1002-lab-03 student$ cd ~
+G608-19:~ student$ pwd
+/Users/student
 
 ==========
 4. Create an empty file called copy_to_backup.sh.  Verify that the file exists.
 
 What commands did you use to do this?
 ----------
-
+G608-19:~ student$ touch copy_to_backup.sh
+G608-19:~ student$ ls
+Adlm			Library			google.html
+Adobe			Movies			mtec1002-lab-03
+Applications		Music			mtec1002-lab-03.tar.gz
+Creative Cloud Files	Pictures		secret.tar.gz
+Desktop			Public			stuff
+Documents		__MACOSX		voteposter.indd
+Downloads		copy_to_backup.sh	xgen
 
 
 ==========
@@ -50,7 +69,8 @@ What commands did you use to do this?
 What command did you use to find the permissions?
 ----------
 
-
+G608-19:~ student$ ls -l copy_to_backup.sh
+-rw-r--r--  1 student  staff  0 Feb 16 18:20 copy_to_backup.sh
 
 ==========
 6. Change the permissions so that this file is executable by the user.  Verify the new permissions.
@@ -58,7 +78,9 @@ What command did you use to find the permissions?
 What commands did you use to do this?  What was the output?
 ----------
 
-
+G608-19:~ student$ chmod u+x copy_to_backup.sh
+G608-19:~ student$ ls -l copy_to_backup.sh
+-rwxr--r--  1 student  staff  0 Feb 16 18:20 copy_to_backup.sh
 
 ==========
 7. Try executing the file!
@@ -68,6 +90,9 @@ $ ./copy_to_backup.sh
 What command did you use to try to execute the file?  What happens?
 ----------
 
+NOTHING
+G608-19:~ student$ ./copy_to_backup.sh
+G608-19:~ student$ 
 
 
 ==========
@@ -75,7 +100,7 @@ What command did you use to try to execute the file?  What happens?
 
 What command did you use to do this?
 ----------
-
+nano copy_to_backup.sh
 
 
 ==========
@@ -88,6 +113,11 @@ c. print out "I'm done backing up"
 Write out the code in your file below...
 ----------
 
+mkdir -p /users/student/backup
+cd .
+cp *.txt /users/student/backup
+echo I'm done backing up"
+
 
 
 ==========
@@ -98,7 +128,10 @@ Write out the code in your file below...
 
 What commands did you use to do this?
 ----------
-
+mkdir -p /users/student/test
+cd /users/student/test
+touch 1.txt
+touch 2.txt
 
 
 ==========
@@ -107,14 +140,14 @@ What commands did you use to do this?
 What commands did you use to do this?
 ----------
 
-
+mv copy_to_backup.sh /users/student/test
 
 ==========
 13. Run your script.
 
 What commands did you use to do this?
 ----------
-
+./copy_to_backup.sh
 
 
 ==========
@@ -122,3 +155,5 @@ What commands did you use to do this?
 
 What commands did you use to do this?  Show the output.
 ----------
+
+ls -l copy_to_backup.sh
